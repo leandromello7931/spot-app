@@ -6,8 +6,8 @@ const SpotSchema = new mongoose.Schema({
   price: Number,
   techs: [String],
   user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    type: mongoose.Schema.Types.ObjectId, //id de user
+    ref: 'User' //referencia para o model User
   }
 });
 
