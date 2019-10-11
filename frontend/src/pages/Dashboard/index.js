@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../services/api';
+import './styles.css';
 
 export default function Dashboard(){
   const [spots, setSpots] = useState([]);
 
-  useEffect(()=>{
+  useEffect(()=>{ //load data when load the page
     async function loadSpots(){
       const user_id = localStorage.getItem('user');
       const response = await api.get('/dashboard', {
@@ -13,13 +14,13 @@ export default function Dashboard(){
       setSpots(response.data);
     }
     loadSpots();
-  }, [] )
+  }, [] ) // [] dependecy array: when the variables value inside changes the function executes again
   return (
     <>
       <ul className="spot-list">
         {spots.map(spot => (
           <li key={ spot._id }>
-            <header>
+            <header style={{ backgroundImage: `url(${spot.thumbnail_url})` }} >
 
             </header>
             <strong>{spot.company}</strong>

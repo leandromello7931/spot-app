@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import api from '../../services/api';
 
 export default function Login({ history }){
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(''); //hook functions
 
   async function handleSubmit(event){
     event.preventDefault();
@@ -11,7 +11,7 @@ export default function Login({ history }){
 
     const { _id } = response.data;
     
-    localStorage.setItem('user', _id);
+    localStorage.setItem('user', _id); //save the user_id in the local storage 
 
     history.push('/dashboard');
   }
